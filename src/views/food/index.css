@@ -1,0 +1,80 @@
+.siteList {
+    width: 80%;
+    margin-top: -2%;
+    margin-left: 19%;
+}
+
+.part2 {
+    margin-top: 5%;
+}
+
+.showMore {
+    float: right;
+    margin-top: -4px;
+}
+
+.showMore:hover {
+    cursor: pointer;
+}
+
+
+
+.liItem {
+    float: left;
+    margin-left: 5%;
+}
+
+.liItem:hover {
+    cursor: pointer;
+}
+
+.cateList ul {
+    width: 70%;
+    margin-top: -25px;
+    margin-left: 13%;
+    float: left;
+}
+
+.vr {
+    display: block;
+    float: left;
+    margin-top: 2px;
+    margin-left: 5%;
+    border: solid 1px black;
+    height: 2vh;
+    width: 1px;
+}
+
+.header {
+    padding-top: 0;
+}
+
+.ck {
+    margin: 0 5px;
+}
+
+
+/* 修改按钮 */
+:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary.coverStyle:not(:disabled) {
+    color: #fff;
+    background-color: #eb9d76;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary.coverStyle:not(:disabled):active {
+    color: #fff;
+    background-color: #eb9d76;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary.coverStyle:not(:disabled):hover {
+    color: #fff;
+    background-color: #eb9d76;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+
+.siteList :where(.css-dev-only-do-not-override-htwhyh).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #e18623;
+    text-shadow: 0 0 0.25px currentcolor;
+}

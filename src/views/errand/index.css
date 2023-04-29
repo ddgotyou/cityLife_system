@@ -1,0 +1,26 @@
+.header {
+    padding-top: 0;
+}
+
+.more {
+    display: flex;
+    vertical-align: middle;
+}
+
+.more:hover {
+    cursor: pointer;
+    color: rgb(0, 179, 255);
+}
+
+.detail {
+    margin-top: 2%;
+}
+
+.buttonGroup {
+    margin: 5% 45%;
+    width: 30%;
+}
+
+.button2 {
+    margin-left: 10%;
+}

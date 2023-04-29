@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 4045058 */
+  src: url('iconfont.woff2?t=1682751873679') format('woff2'),
+    url('iconfont.woff?t=1682751873679') format('woff'),
+    url('iconfont.ttf?t=1682751873679') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-motorbike:before {
+  content: "\e70e";
+}
+
+.icon-motorcycle:before {
+  content: "\e8a7";
+}
+
+.icon-a-motorvan-line:before {
+  content: "\e9f5";
+}
+
+.icon-huoche_zhuangche:before {
+  content: "\eb35";
+}
+
+.icon-zihangche:before {
+  content: "\ec69";
+}
+
+.icon-yule:before {
+  content: "\e7f1";
+}
+
+.icon-food:before {
+  content: "\e615";
+}
+
+.icon-Cat:before {
+  content: "\eaa6";
+}
+
+.icon-food1:before {
+  content: "\e654";
+}
+
+.icon-cat:before {
+  content: "\e641";
+}
+
+.icon-paotuiAPP:before {
+  content: "\e6bb";
+}
+
+.icon-yule1:before {
+  content: "\e631";
+}

@@ -1,0 +1,53 @@
+.header {
+    padding-top: 0;
+}
+
+.more {
+    display: flex;
+    vertical-align: middle;
+}
+
+.more:hover {
+    cursor: pointer;
+    color: rgb(0, 179, 255);
+}
+
+.shop,
+.hospital {
+    box-shadow: 0px 0px 5px rgb(227, 226, 226);
+    /* 不换行 */
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+.shop {}
+
+.hospital {
+    margin-top: 3%;
+}
+
+
+.subCard,
+.lastCard {
+    display: inline-block;
+    width: 20%;
+    margin-left: 1%;
+    padding: 0 2%;
+}
+
+.subCard {
+    border-right: 1px solid grey;
+}
+
+
+/* 商品展示区域 */
+.product {
+    height: 30vh;
+
+}
+
+
+.aniSate :where(.css-dev-only-do-not-override-htwhyh).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #e18623;
+    text-shadow: 0 0 0.25px currentcolor;
+}

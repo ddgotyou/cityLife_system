@@ -1,0 +1,62 @@
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-input:focus,
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-input-focused {
+    border-color: #ecbb75;
+    box-shadow: 0 0 0 2px rgba(243, 233, 59, 0.1);
+    border-inline-end-width: 1px;
+    outline: 0;
+}
+
+
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-input:hover {
+    border-color: #ecbb75;
+    border-inline-end-width: 1px;
+}
+
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-input {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    background-color: #ffffff;
+    background-image: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ecbb75;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+
+
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary:not(:disabled):active {
+    color: #fff;
+    background-color: #ffc34d;
+}
+
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary:not(:disabled):hover {
+    color: #fff;
+    background-color: #ffc34d;
+}
+
+.searchWrapper :where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary {
+    color: #fff;
+    background-color: #ffc34d;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+
+
+#mapContainer {
+    padding: 0px;
+    margin-bottom: 3%;
+    width: 100%;
+    height: 40vh;
+}

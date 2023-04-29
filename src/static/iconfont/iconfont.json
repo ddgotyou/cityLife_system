@@ -1,0 +1,93 @@
+{
+  "id": "4045058",
+  "name": "city",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1203900",
+      "name": "motorbike",
+      "font_class": "motorbike",
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "6986813",
+      "name": "motorcycle",
+      "font_class": "motorcycle",
+      "unicode": "e8a7",
+      "unicode_decimal": 59559
+    },
+    {
+      "icon_id": "24342021",
+      "name": "motor van-line",
+      "font_class": "a-motorvan-line",
+      "unicode": "e9f5",
+      "unicode_decimal": 59893
+    },
+    {
+      "icon_id": "5387701",
+      "name": "货车_装车",
+      "font_class": "huoche_zhuangche",
+      "unicode": "eb35",
+      "unicode_decimal": 60213
+    },
+    {
+      "icon_id": "5961332",
+      "name": "自行车",
+      "font_class": "zihangche",
+      "unicode": "ec69",
+      "unicode_decimal": 60521
+    },
+    {
+      "icon_id": "7791035",
+      "name": "娱乐",
+      "font_class": "yule",
+      "unicode": "e7f1",
+      "unicode_decimal": 59377
+    },
+    {
+      "icon_id": "10265410",
+      "name": "food",
+      "font_class": "food",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "12004913",
+      "name": "Cat",
+      "font_class": "Cat",
+      "unicode": "eaa6",
+      "unicode_decimal": 60070
+    },
+    {
+      "icon_id": "13519403",
+      "name": "food",
+      "font_class": "food1",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "14678920",
+      "name": "cat",
+      "font_class": "cat",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "17474105",
+      "name": "跑腿APP",
+      "font_class": "paotuiAPP",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "19449156",
+      "name": "娱乐",
+      "font_class": "yule1",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    }
+  ]
+}

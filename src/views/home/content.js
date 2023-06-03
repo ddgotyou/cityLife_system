@@ -1,12 +1,18 @@
 import React from "react";
 import './index.css'
-import Search from '../../components/searchBox'
 import '../../static/iconfont/iconfont.css'
 import { Card } from "antd";
 
-//推荐数据表
-const arr = new Array(7).fill(0);
 
+//大类推荐
+const cate1 = [
+    '自助餐', '火锅', '面包/饮品', '烧烤烤串', '西餐', '粤菜', '川菜', '酒吧', '鱼鲜', '小吃快餐'
+];
+const cate2 = [
+    'KTV', '酒吧', '洗浴/汗蒸', '按摩/足疗', '剧本杀', '运动健身', '影院', '轰趴馆', '网吧/电竞', 'DIY手工坊'
+];
+const cate3 = ['狗粮', '猫粮', '宠物零食', '宠物玩具', '宠物保健品', '宠物医药品', '宠物沐浴露', '宠物日用品']
+const cate4 = ['帮我送', '帮我买', '帮我排队', '全能帮'];
 
 const subCardStyle = {
     width: '80%',
@@ -49,11 +55,11 @@ function HomeContent() {
         <Card className="homeContent" title={foodHeader} extra={<a className="extra" href="#">More</a>} style={{ ...subCardStyle }}>
             {
 
-                arr.map((item, index) => {
-                    return <><div className={index === arr.length - 1 ? "last" : "sub"}>
+                cate1.map((item, index) => {
+                    return <><div className={index === cate1.length - 1 ? "last" : "sub"} key={String(index)}>
                         <img src={require('../../static/images/h1.jpg')} style={{ width: '100%' }}></img>
                         <hr />
-                        <span className="textDes">川湘麻辣</span>
+                        <span className="textDes">{item}</span>
                     </div>
 
                     </>
@@ -62,11 +68,11 @@ function HomeContent() {
         </Card>
         <Card className="homeContent" title={playHeader} extra={<a className="extra" href="#">More</a>} style={{ ...subCardStyle }}>
             {
-                arr.map((item, index) => {
-                    return <><div className={index === arr.length - 1 ? "last" : "sub"}>
+                cate2.map((item, index) => {
+                    return <><div className={index === cate2.length - 1 ? "last" : "sub"} key={String(index)}>
                         <img src={require('../../static/images/h2.jpg')} style={{ width: '100%' }}></img>
                         <hr />
-                        <span className="textDes">KTV</span>
+                        <span className="textDes">{item}</span>
                     </div>
 
                     </>
@@ -75,11 +81,11 @@ function HomeContent() {
         </Card>
         <Card className="homeContent" title={animalHeader} extra={<a className="extra" href="#">More</a>} style={{ ...subCardStyle }}>
             {
-                arr.map((item, index) => {
-                    return <><div className={index === arr.length - 1 ? "last" : "sub"}>
+                cate3.map((item, index) => {
+                    return <><div className={index === cate3.length - 1 ? "last" : "sub"} key={String(index)}>
                         <img src={require('../../static/images/h3.jpg')} style={{ width: '100%' }}></img>
                         <hr />
-                        <span className="textDes">狗狗用品</span>
+                        <span className="textDes">{item}</span>
                     </div>
 
                     </>
@@ -88,11 +94,11 @@ function HomeContent() {
         </Card>
         <Card className="homeContent" title={errandHeader} extra={<a className="extra" href="#">More</a>} style={{ ...subCardStyle }}>
             {
-                arr.map((item, index) => {
-                    return <><div className={index === arr.length - 1 ? "last" : "sub"}>
+                cate4.map((item, index) => {
+                    return <><div className={index === cate4.length - 1 ? "last" : "sub"} key={String(index)}>
                         <img src={require('../../static/images/h4.jpg')} style={{ width: '100%' }}></img>
                         <hr />
-                        <span className="textDes">帮我买</span>
+                        <span className="textDes">{item}</span>
                     </div>
 
                     </>

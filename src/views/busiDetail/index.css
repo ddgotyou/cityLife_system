@@ -1,0 +1,54 @@
+.backIcon,
+.leading {
+    display: inline-block;
+    padding-top: 0;
+}
+
+
+.backIcon {
+    width: 10%;
+    font-size: 2em;
+    float: right;
+}
+
+.header {
+    padding-top: 0;
+}
+
+#home:hover {
+    cursor: pointer;
+}
+
+.homeContent {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.sub,
+.last {
+    display: inline-block;
+    width: 20%;
+    margin-left: 1%;
+    padding: 0 2%;
+}
+
+.sub {
+    border-right: 1px solid grey;
+}
+
+
+.info,
+.products,
+.comments {
+    display: inline-block;
+    width: 75%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.recommend {
+    float: right;
+    width: 22%;
+    margin-top: 2%;
+
+}

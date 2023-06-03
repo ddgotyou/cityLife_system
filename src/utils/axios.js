@@ -46,7 +46,6 @@ service.interceptors.response.use(res => {
         let code = Number(res.data.code);
         switch (code) {
             case 200:
-                message.success(res.data.message)
                 break;
             default:
                 message.error(res.data.message);

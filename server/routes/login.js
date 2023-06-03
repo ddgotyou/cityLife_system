@@ -36,6 +36,7 @@ router.post('/submit', function (req, res, next) {
           code: "200",
           message: "登录成功",
           token: tokenUtil.setToken(users[0].id, 'user', "24h"),
+          id: users[0].id
         });
       }
       else {

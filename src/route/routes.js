@@ -2,6 +2,7 @@
 import { useRoutes, Navigate } from "react-router-dom";
 import Login from "../views/login/login";
 import Home from "../views/home";
+import BusiDetail from "../views/busiDetail";
 
 export default function () {
     //使用useRoutes配置route
@@ -14,7 +15,10 @@ export default function () {
         {
             path: '/home',
             element: <Home />
-        },
+        }, {
+            path: '/busiDetail',
+            element: <BusiDetail />
+        }
     ]);
 
     return (

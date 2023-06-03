@@ -54,7 +54,7 @@ function Errand() {
     const cardHeader = <div className="header">
         <span style={{ fontSize: '18px' }}>发起跑腿</span>
         <div className="more" style={{ float: 'right', fontSize: '14px', fontWeight: 'normal', width: '10%', marginTop: '3px' }}>
-            <DoubleRightOutlined style={{ marginRight: "10px", marginTop: '1px', overflow: 'hidden' }} />订单中心
+            <DoubleRightOutlined style={{ marginRight: "10px", marginTop: 4, overflow: 'hidden' }} />订单中心
         </div>
     </div>;
     return <>

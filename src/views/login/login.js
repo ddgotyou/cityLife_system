@@ -35,12 +35,10 @@ const Login = () => {
             userId: userNameRef.current.value,
             password: passWordRef.current.value
         }).then(res => {
-            console.log('login', res);
             if (res.data.code == 200) {
                 //登陆成功覆盖
                 localStorage.setItem('userToken', res.data.token);
-
-                navigate('/home', { replace: true, state: { id: 1 } })//这时候才跳转
+                navigate('/home')//这时候才跳转
             }
         })
 

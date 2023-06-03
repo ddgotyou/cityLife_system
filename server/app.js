@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 //var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/login');
+var busiRouter = require('./routes/business');
+var proRouter = require('./routes/product')
+var comRouter = require('./routes/comment')
 var cors = require("cors");
 var app = express();
 
@@ -19,10 +22,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//管理静态资源
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/login', usersRouter);
+app.use('/business', busiRouter);
+app.use('/product', proRouter);
+app.use('/comment', comRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

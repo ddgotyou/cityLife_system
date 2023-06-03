@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './index.css'
-import { Card, Tabs, Button, Checkbox } from "antd";
+import { Card, Tabs, Button, Checkbox, Rate } from "antd";
+import { useNavigate } from 'react-router-dom';
+//请求接口
+import busiApi from '../../api/business';
 
 const mallList = ['万达广场', '合生汇', '东方艺术中心', '五角场'];
 const areaList = ['浦东区', '杨浦区', '青浦区', '长宁区', '嘉定区'];
@@ -14,12 +17,28 @@ const tabItems = [{
     })()
 }];
 const cateList = [
-    '自助餐', '火锅', '面包/饮品', '烧烤烤串', '西餐', '粤菜', '川菜', '酒吧', '鱼鲜', '小吃快餐'
+    '自助餐', '火锅', '面包/饮品', '烧烤烤串', '西餐', '粤菜', '川湘菜', '酒吧', '鱼鲜', '小吃快餐'
 ]
-
+const liStyle = { borderBottom: '1px solid #f0f0f0', paddingBottom: '1%' };
 
 
 function Food() {
+    const [busiList, setBusiList] = useState([]);
+    let navigate = useNavigate();
+    //获取店家的详情
+    const getDetail = (e) => {
+        navigate('/busiDetail', { state: busiList[parseInt(e.target.id)] })//这时候才跳转
+    }
+
+    //获得Food店家列表
+    useEffect(() => {
+        busiApi.getBusiness({
+            type: 1
+        }).then(res => {
+            setBusiList(res.data.data);
+        })
+    }, []);
+
     const cardHeader = <div className="header">
         <span>热门美食</span>
         <ul type="none" style={{ float: 'right', fontSize: '14px', fontWeight: 'normal', width: '25%' }}>
@@ -67,8 +86,25 @@ function Food() {
 
             </Card >
             <Card style={{ marginLeft: '12%', width: '80%', marginTop: '2%', padding: '0 0' }} title={cardHeader}>
-                <div>222</div>
-                <hr />
+                <ul type="none" className="busiShowList">
+                    {
+                        busiList.map((item, index) => {
+                            return <li style={index == 0 ? { ...liStyle } : { ...liStyle, paddingTop: '2%' }} key={String(index)} >
+                                <img style={{ width: '20%', height: 200, float: 'left' }} src="http://localhost:9000/images/shopImage/shop2.jpg" id={String(index)} title={item.name} onClick={getDetail}></img>
+                                <div style={{ display: 'inline-block', marginLeft: '2%' }}>
+                                    <h5>{item.name}</h5>
+                                    <div className="shopInfo">
+                                        <p><Rate disabled value={item.rank}></Rate> &nbsp;&nbsp;评分:{item.rank}</p>
+                                        <p>{item.label}</p>
+                                        <p>电话 :{item.tel}</p>
+                                        <p>邮箱 :{item.mail}</p>
+                                        <p>地址 :{item.place}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        })
+                    }
+                </ul>
             </Card>
         </>
     );

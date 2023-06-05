@@ -79,7 +79,7 @@ const Login = () => {
     }
     return (
         <div className='pageStyle'>
-            <Card className="loginModule" ref={loginRef}>
+            <Card className="loginModule" ref={loginRef} hoverable>
                 <Card.Title>欢迎开启智慧生活</Card.Title>
                 <Card.Body>
                     <Form.Group >

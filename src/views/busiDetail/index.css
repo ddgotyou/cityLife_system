@@ -52,3 +52,37 @@
     margin-top: 2%;
 
 }
+
+.functional {
+    position: absolute;
+    left: 95%;
+    top: -0.5px;
+}
+
+.like:hover,
+.share:hover {
+    cursor: pointer;
+}
+
+
+
+.share {
+    margin-left: 15px;
+}
+
+
+.writeComment:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary {
+    color: #fff;
+    background-color: #ffac4d;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+.writeComment:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary:not(:disabled):active {
+    color: #fff;
+    background-color: #ffac4d;
+}
+
+.writeComment:where(.css-dev-only-do-not-override-htwhyh).ant-btn-primary:not(:disabled):hover {
+    color: #fff;
+    background-color: #ffac4d;
+}

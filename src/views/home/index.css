@@ -36,6 +36,11 @@
     border-right: 1px solid grey;
 }
 
+.userCenter {
+    margin-left: 40px;
+    cursor: pointer;
+}
+
 :where(.css-dev-only-do-not-override-htwhyh).ant-menu-inline,
 :where(.css-dev-only-do-not-override-htwhyh).ant-menu-vertical {
     width: 9vw;
@@ -69,3 +74,6 @@
 a.extra {
     color: #c57a08;
 }
+
+
+/* 用户画像 */

@@ -32,6 +32,7 @@ service.interceptors.request.use(config => {
 
     //序列化原来的请求参数
     config.data = QS.stringify(config.data);
+
     return config;
 }, err => {
     return err;
@@ -48,7 +49,7 @@ service.interceptors.response.use(res => {
             case 200:
                 break;
             default:
-                message.error(res.data.message);
+                //message.error(res.data.message);
                 break;
         }
     }

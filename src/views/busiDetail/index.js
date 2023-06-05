@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../static/iconfont/iconfont.css'
-import { Layout, Card, Rate, Button } from 'antd';
+import { Layout, Card, Rate, Button, List } from 'antd';
 import {
     HomeOutlined,
     UserOutlined,
@@ -14,7 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 //请求接口
 import proApi from '../../api/product';
 import comApi from '../../api/comment';
-
+import historyApi from '../../api/history';
 
 //布局元素拆解
 const { Header, Content, Sider } = Layout;
@@ -44,6 +44,20 @@ function BusiDetail() {
     const [pItems, setPItems] = useState([]);
     const [commentList, setCommentList] = useState([]);
 
+    //猜你喜欢的推荐列表
+    const [recommendList, setRecommendList] = useState([{
+        title: 'Title 1',
+    },
+    {
+        title: 'Title 2',
+    },
+    {
+        title: 'Title 3',
+    },
+    {
+        title: 'Title 4',
+    }]);
+
     useEffect(() => {
         proApi.getBusiProduct({ busiId: state.id }).then((res) => {
             setPItems(res.data.data);
@@ -59,7 +73,10 @@ function BusiDetail() {
         navigate('/home');
     }
 
-
+    const clickSearch = (obj) => {
+        //本身拦截器就会自带token，后端解析便可
+        historyApi.search({ ...obj });
+    };
 
 
     return (
@@ -78,7 +95,7 @@ function BusiDetail() {
             </Header>
             <Content>
                 <Layout>
-                    <Header style={{ backgroundColor: '#fff', width: '100vw' }}><Search /></Header>
+                    <Header style={{ backgroundColor: '#fff', width: '100vw' }}><Search sec='0' onClick={clickSearch} /></Header>
                     <Content style={contentStyle}>
                         <Card className='info'>
                             <img style={{ width: '20%', height: 200, float: 'left' }} src="http://localhost:9000/images/shopImage/shop2.jpg"></img>
@@ -92,30 +109,37 @@ function BusiDetail() {
                                     <p>地址 :{state.place}</p>
                                 </div>
                             </div>
-                            <div className='functional'><HeartOutlined /><ShareAltOutlined /></div>
-                            <Button type="primary" size="middle">
+                            <div className='functional'><HeartOutlined className='like' /><ShareAltOutlined className='share' /></div>
+                            <Button type="primary" size="middle" className='writeComment'>
                                 写评价
                             </Button>
 
                         </Card>
                         <Card className='recommend'>
                             <h5>猜你喜欢</h5>
-                            <ul>
-                                {/* 推荐列表 */}
-                                <li>孔雀</li>
-                                <li>岳阳楼</li>
-                                <li>金孔雀</li>
-                            </ul>
+                            <List
+                                grid={{
+                                    gutter: 8,
+                                    column: 2,
+                                }}
+                                dataSource={recommendList}
+                                renderItem={(item) => (
+                                    <List.Item>
+                                        <Card title={item.title} hoverable>Card content</Card>
+                                    </List.Item>
+                                )}
+                            />
+
                         </Card>
                         <Card className='products'>
                             <h5>火热推荐</h5>
                             {pItems.length ?
-                                <ul type="none">
+                                <ul type="none" style={{ marginLeft: '-2%' }}>
                                     {pItems.map((item, index) => {
                                         return (
-                                            <li>
+                                            <li style={{ float: 'left', marginRight: '5%' }}>
                                                 <div>
-                                                    <img src=''></img>
+                                                    <img style={{ width: '50px', height: '50px', marginRight: '5px' }} src='http://localhost:9000/images/productImage/菜品.jpg'></img>
                                                     <p>{item.name}</p>
                                                 </div>
                                             </li>
@@ -128,12 +152,12 @@ function BusiDetail() {
                         <Card className='comments'>
                             <h5>网友评价</h5>
 
-                            {commentList.length ? <ul type="none">{commentList.map((item, index) => {
+                            {commentList.length ? <ul type="none" >{commentList.map((item, index) => {
                                 return (
-                                    <li>
+                                    <li style={{ borderBottom: '1px solid #f0f0f0', marginLeft: '-3%', marginTop: '1%' }}>
                                         <div>
-                                            <img src=''></img>
-                                            <span>{item.userName}</span>
+                                            <img style={{ width: '30px', height: '30px', marginRight: '5px' }} src='http://localhost:9000/images/userImage/默认用户头像.jpg'></img>
+                                            <span><b>{item.userName}</b></span>
                                             <Rate disabled value={item.rank}></Rate>
                                             <pre>{item.content}</pre>
                                         </div>
@@ -146,8 +170,8 @@ function BusiDetail() {
                         </Card>
                     </Content>
                 </Layout>
-            </Content>
-        </Layout>
+            </Content >
+        </Layout >
     );
 
 }

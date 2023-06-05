@@ -17,10 +17,11 @@ function setToken(userId, role, expire) {
 
 function verifyToken(token) {
     const { userId, role, iat, exp } = jwt.verify(token, SECRET_KEY)
-    if (Number(exp) >= Date.now()) {//有效
-        return userId;
-    }//可以续签
-    else return -1;
+    return userId;//暂时设置为永久有效
+    // if (Number(exp) >= Date.now()) {//有效
+    //     return userId;
+    // }//可以续签
+    // else return -1;
 }
 
 

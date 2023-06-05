@@ -72,4 +72,31 @@ router.post('/setUser', function (req, res, next) {
   })
 });
 
+
+//返回用户画像
+router.get('/feature', function (req, res, next) {
+  const { token } = req.query;
+  let userId = tokenUtil.verifyToken(token);
+  const sql = `select historySearch from history where userId=${userId}`;
+  connection.query(sql, (err, h) => {
+    if (err) {
+      res.send({
+        code: "500",
+        message: err,
+      });
+    }
+    else {
+      res.send({
+        code: "200",
+        message: "获取画像成功",
+        data: h
+      });
+    }
+  })
+
+})
+
+
+
+
 module.exports = router;

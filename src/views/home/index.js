@@ -1,13 +1,15 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import Menu from './menu';
 import '../../static/iconfont/iconfont.css'
-import { Layout, Card } from 'antd';
+import { Layout, Card, Popover } from 'antd';
 import {
     HomeOutlined,
     UserOutlined
 } from '@ant-design/icons';
 import './index.css'
 import Search from '../../components/searchBox'
+import historyApi from '../../api/history';
+import userApi from '../../api/user';
 
 //引入子页面
 import Food from '../food';
@@ -35,11 +37,43 @@ const contentStyle = {
 }
 
 function Home() {
-    const [subPageType, setPageType] = useState('0');
-    const changeSub = useCallback((value) => {
+    const [showArrow, setShowArrow] = useState(true);
+    const [arrowAtCenter, setArrowAtCenter] = useState(false);
+    const mergedArrow = useMemo(() => {
+        if (arrowAtCenter)
+            return {
+                pointAtCenter: true,
+            };
+        return showArrow;
+    }, [showArrow, arrowAtCenter]);
 
+    const [subPageType, setPageType] = useState('0');
+    const [hList, setHlist] = useState([]);
+    const changeSub = useCallback((value) => {
         setPageType(value);
     }, [subPageType]);
+    const clickSearch = (obj) => {
+        //本身拦截器就会自带token，后端解析便可
+        historyApi.search({ ...obj }).then(res => {
+            setHlist(res.data.data);
+        })
+    };
+
+    //获取用户画像
+    useEffect(() => {
+        userApi.showFeature().then(res => {
+            console.log(res);
+        })
+    }, [])
+
+    //用户画像绘制
+    const userFeature = (
+        <div className='userWrap'>
+            <div className='userIcon'></div>
+            <div className='bubble'></div>
+        </div>
+
+    )
 
     return (
 
@@ -65,12 +99,14 @@ function Home() {
                 <div className='backIcon'>
                     {/* 后面放：用户图标和设置*/}
                     <span id='home' onClick={() => setPageType('0')}><HomeOutlined /></span>
-                    <span style={{ marginLeft: 40 }}><UserOutlined /></span>
+                    <Popover placement="bottom" title="用户画像" content={userFeature} arrow={mergedArrow}>
+                        <span className='userCenter'><UserOutlined /></span>
+                    </Popover>
                 </div>
             </Header>
             <Content>
                 <Layout>
-                    <Header style={{ backgroundColor: '#fff', width: '100vw' }}><Search /></Header>
+                    <Header style={{ backgroundColor: '#fff', width: '100vw' }}><Search sec={subPageType} onClick={clickSearch} /></Header>
                     <Content style={contentStyle}>
 
                         <Menu onChange={changeSub} option={subPageType} />

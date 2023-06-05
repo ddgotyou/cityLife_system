@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './index.css'
 import { Card, Tabs, Button, Checkbox, Rate } from "antd";
+import { useNavigate } from 'react-router-dom';
 //请求接口
 import busiApi from '../../api/business';
 
@@ -24,6 +25,7 @@ const liStyle = { borderBottom: '1px solid #f0f0f0', paddingBottom: '1%' };
 
 function Recreation() {
     const [busiList, setBusiList] = useState([]);
+    let navigate = useNavigate();
     //获得休闲娱乐店家列表
     useEffect(() => {
         busiApi.getBusiness({
@@ -32,7 +34,11 @@ function Recreation() {
             setBusiList(res.data.data);
         })
     }, []);
-
+    //获取店家的详情
+    const getDetail = (e) => {
+        console.log(busiList);
+        navigate('/busiDetail', { state: busiList[parseInt(e.target.id)] })//这时候才跳转
+    }
 
     const cardHeader = <div className="header">
         <span>热门娱乐地点</span>
@@ -85,7 +91,7 @@ function Recreation() {
                     {
                         busiList.map((item, index) => {
                             return <li style={index == 0 ? { ...liStyle } : { ...liStyle, paddingTop: '2%' }}>
-                                <img style={{ width: '20%', height: 200, float: 'left' }} src="http://localhost:9000/images/shopImage/shop2.jpg"></img>
+                                <img style={{ width: '20%', height: 200, float: 'left', cursor: 'pointer' }} src="http://localhost:9000/images/shopImage/shop2.jpg" id={String(index)} title={item.name} onClick={getDetail}></img>
                                 <div style={{ display: 'inline-block', marginLeft: '2%' }}>
                                     <h5>{item.name}</h5>
                                     <div className="shopInfo">

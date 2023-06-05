@@ -17,10 +17,22 @@
 }
 
 .buttonGroup {
-    margin: 5% 45%;
-    width: 30%;
+    margin: 20vh -35vw;
+
 }
 
 .button2 {
-    margin-left: 10%;
+    margin-left: 10vw;
+}
+
+.aimPos {
+    position: relative;
+    top: -1px;
+    left: -8px;
+}
+
+
+.aimPos:hover {
+    cursor: pointer;
+    color: rgb(12, 127, 227);
 }

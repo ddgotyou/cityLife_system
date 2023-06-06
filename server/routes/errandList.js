@@ -7,9 +7,9 @@ const { port } = require('./config') // 获取启动参数
 /* 生成跑腿订单 */
 router.post('/addNewSubscribe', function (req, res, next) {
     const { desAddr, getType, needContent, needType, targetAddr, time, token } = req.body;
-
+    let userId = tokenUtil.verifyToken(token);
     //判定身份，生成token返回
-    const sql = `insert into errandlist( needType,getType, desAddr,targetAddr, description,time) values("${needType}",${getType},"${desAddr}","${targetAddr}","${needContent}","${time}")`;
+    const sql = `insert into errandlist( needType,getType, desAddr,targetAddr, description,time,userId) values("${needType}",${getType},"${desAddr}","${targetAddr}","${needContent}","${time}",${userId})`;
     connection.query(sql, (err, users) => {
 
         if (err) {

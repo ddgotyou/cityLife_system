@@ -83,8 +83,6 @@ router.get('/getBusinessPerCate', function (req, res, next) {
 /*查找某商家的具体信息*/
 router.get('/getBusiDetail', function (req, res, next) {
     const { busiId } = req.query;
-
-
     const sql = `select * from business where id=${busiId}`;
     connection.query(sql, (err, info) => {
         if (err) {

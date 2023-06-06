@@ -77,3 +77,9 @@ a.extra {
 
 
 /* 用户画像 */
+.userWrap {
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+
+}

@@ -6,7 +6,11 @@ function getBusiComment(param) {
     });
 }
 
+function submitComment(param) {
+    return React.$axios.post('/comment/submitComment', param)
+}
+
 
 export default {
-    getBusiComment
+    getBusiComment, submitComment
 }

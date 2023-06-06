@@ -10,6 +10,7 @@ import './index.css'
 import Search from '../../components/searchBox'
 import historyApi from '../../api/history';
 import userApi from '../../api/user';
+import featureGenerator from './featureGenerator';
 
 //引入子页面
 import Food from '../food';
@@ -49,6 +50,8 @@ function Home() {
 
     const [subPageType, setPageType] = useState('0');
     const [hList, setHlist] = useState([]);
+    const [fList, setFlist] = useState([]);
+
     const changeSub = useCallback((value) => {
         setPageType(value);
     }, [subPageType]);
@@ -62,15 +65,23 @@ function Home() {
     //获取用户画像
     useEffect(() => {
         userApi.showFeature().then(res => {
-            console.log(res);
-        })
+            setFlist(res.data.data.map((item) => {
+                return '喜欢' + item.historySearch;
+            }));
+
+        });
     }, [])
 
     //用户画像绘制
     const userFeature = (
-        <div className='userWrap'>
-            <div className='userIcon'></div>
-            <div className='bubble'></div>
+        <div className='userWrap' id='userWrap'>
+            {
+                //将最近的5条特征放入
+                fList.slice((fList.length - 5) < 0 ? 0 : (fList.length - 5)).map((item, index) => {
+                    let contentStyle = featureGenerator(item, index);
+                    return <div style={contentStyle}>{item}</div>
+                })
+            }
         </div>
 
     )
@@ -100,7 +111,7 @@ function Home() {
                     {/* 后面放：用户图标和设置*/}
                     <span id='home' onClick={() => setPageType('0')}><HomeOutlined /></span>
                     <Popover placement="bottom" title="用户画像" content={userFeature} arrow={mergedArrow}>
-                        <span className='userCenter'><UserOutlined /></span>
+                        <span className='userCenter' ><UserOutlined /></span>
                     </Popover>
                 </div>
             </Header>

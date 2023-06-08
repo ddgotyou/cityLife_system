@@ -37,8 +37,12 @@ const Login = () => {
         }).then(res => {
             if (res.data.code == 200) {
                 //登陆成功覆盖
+                message.success("登录成功!");
                 localStorage.setItem('userToken', res.data.token);
                 navigate('/home')//这时候才跳转
+            }
+            else {
+                message.error(res.data.message);
             }
         })
 

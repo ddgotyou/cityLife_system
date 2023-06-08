@@ -42,7 +42,7 @@ router.post('/submit', function (req, res, next) {
       else {
         res.send({
           code: "500",
-          message: "该用户不存在,请先注册!",
+          message: "账号或密码错误!",
         });
       }
 
